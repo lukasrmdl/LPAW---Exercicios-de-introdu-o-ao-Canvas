@@ -1,0 +1,32 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Exercicio 2</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px dotted #000"></canvas>
+</body>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function circ(ctx, x, y, r, l, color, fill = false){
+            ctx.lineWidth = l;
+            ctx.beginPath();
+            ctx.arc(x, y, r, 0, Math.PI/180*360);
+
+            if
+            (fill == false){ctx.fillStyle = '#fff';}
+            else
+            {ctx.fillStyle = fill;}
+
+            ctx.strokeStyle = color;
+            ctx.fill();
+            ctx.stroke();
+        }
+
+        circ(ctx, 100, 50, 30, 5, '#f00');
+        circ(ctx, 200, 50, 40, 5, '#00f', '#0f0'); // largura da borda alterada para 5 para ficar igual ao exemplo;
+    </script>
+</html>

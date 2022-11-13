@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Canvas - Exercicio 7</title>
+</head>
+<body>
+    <canvas width="600" height="400" style="border: 1px dotted #000">
+        
+    </canvas>
+</body>
+    <script>
+        const canvas = document.querySelector('canvas');
+        const ctx = canvas.getContext('2d');
+
+        function writeCenter(ctx, cwidth, cheight, text, color = 'black', size = 12, family = 'serif', style = 'normal', base = 'alphabetic', grad = false) {
+            
+            //text font family
+            
+            let textFontFamily = 'serif';
+
+            if(family != 'serif')
+            {textFontFamily = family;}
+
+            //text font style
+
+
+            let textFontStyle = 'normal';
+
+            if(style != 'normal')
+             {textFontStyle = style;}
+
+             //text font size
+            
+            let textFontSize = 12;
+
+            if(size != 12) 
+            {textFontSize = size;}
+            
+
+            ctx.font = `${textFontStyle} ${textFontSize}px ${textFontFamily}`;
+
+            if(base == 'alphabetic') 
+            {ctx.textBaseline = 'alphabetic';} 
+            else 
+            {ctx.textBaseline = base;}
+
+            let textMetric = ctx.measureText(text);
+
+            if (grad != false) 
+            {
+                ctx.fillStyle = grad;
+                ctx.strokeText(text, cwidth / 2 - textMetric.width / 2, cheight / 2 - textFontSize);	
+            }
+
+            if(color == 'black') 
+            {ctx.fillStyle = 'black';} 
+            else 
+            {ctx.fillStyle = color;}
+
+            ctx.fillText(text, cwidth / 2 - textMetric.width / 2, cheight / 2 - textFontSize)
+        }
+
+        writeCenter(ctx, canvas.width, canvas.height, 'CENTRALIZADO', '#00f', 24, 'sans', 'bold', 'top');
+    </script>
+</html>
